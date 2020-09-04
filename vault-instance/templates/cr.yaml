@@ -70,7 +70,13 @@ spec:
     # Override the default Ingress specification here
     # This follows the same format as the standard Kubernetes Ingress
     # See: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.13/#ingressspec-v1beta1-extensions
-    spec: {}
+{{- if .Values.ingress.annotations }}
+{{ toYaml .Values.ingress.annotations | indent 6 }}
+{{- end }}
+    spec:
+{{- if .Values.ingress.spec }}
+{{ toYaml .Values.ingress.spec | indent 6 }}
+{{- end }}
 
   # Use local disk to store Vault file data, see config section.
   volumes:
