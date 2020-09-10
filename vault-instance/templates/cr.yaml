@@ -60,6 +60,9 @@ spec:
   # Specify existing secret contains TLS certificate (accepted secret type: kubernetes.io/tls)
   # If it is set, generating certificate will be disabled
   # existingTlsSecretName: selfsigned-cert-tls
+{{- if .Values.existingTlsSecretName }}
+  existingTlsSecretName: '{{ .Values.existingTlsSecretName }}'
+{{- end }}
 
   # Request an Ingress controller with the default configuration
   ingress:
