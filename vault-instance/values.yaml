@@ -1,1 +1,12 @@
-dummy: true
+existingTlsSecretName: ""
+ingress:
+  annotations: {}
+  spec: 
+    rules:
+      - host: vault.does.not.exist
+        http:
+          paths:
+          - backend:
+              serviceName: vault
+              servicePort: 8200
+            path: /
