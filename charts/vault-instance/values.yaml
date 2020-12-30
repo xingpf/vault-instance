@@ -1,5 +1,11 @@
+bankVaultsImage: banzaicloud/bank-vaults:master
+
 existingTlsSecretName: ""
+
+image: vault:1.3.1
+
 ingress:
+  enabled: true
   annotations: {}
   spec: 
     rules:
@@ -10,3 +16,8 @@ ingress:
               serviceName: vault
               servicePort: 8200
             path: /
+
+istio:
+  enabled: false
+
+size: 1
