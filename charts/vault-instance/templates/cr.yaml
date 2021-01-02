@@ -3,9 +3,9 @@ kind: "Vault"
 metadata:
   name: "vault"
 spec:
-  size: 1
-  image: vault:1.3.1
-  bankVaultsImage: banzaicloud/bank-vaults:master
+  size: {{ .Values.size }}
+  image: {{ .Values.image }}
+  bankVaultsImage: {{ .Values.bankVaultsImage }}
 
   # Common annotations for all created resources
   annotations:
@@ -64,6 +64,7 @@ spec:
   existingTlsSecretName: '{{ .Values.existingTlsSecretName }}'
 {{- end }}
 
+{{- if .Values.ingress.enabled }}
   # Request an Ingress controller with the default configuration
   ingress:
     # Specify Ingress object annotations here, if TLS is enabled (which is by default)
@@ -79,6 +80,7 @@ spec:
     spec:
 {{- if .Values.ingress.spec }}
 {{ toYaml .Values.ingress.spec | indent 6 }}
+{{- end }}
 {{- end }}
 
   # Use local disk to store Vault file data, see config section.
@@ -205,4 +207,4 @@ spec:
       value: "/vault/file"
 
   # Marks presence of Istio, which influences things like port namings
-  istioEnabled: false
+  istioEnabled: {{ .Values.istio.enabled }}
