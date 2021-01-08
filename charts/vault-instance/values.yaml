@@ -1,8 +1,8 @@
-bankVaultsImage: banzaicloud/bank-vaults:master
+bankVaultsImage: banzaicloud/bank-vaults:1.10.0
 
 existingTlsSecretName: ""
 
-image: vault:1.3.1
+image: vault:1.6.1
 
 ingress:
   enabled: true
