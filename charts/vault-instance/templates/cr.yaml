@@ -145,6 +145,9 @@ spec:
         bound_service_account_namespaces:
         - {{ .Release.Namespace }}
         - vswh
+        {{- range .Values.auth.namespaces }}
+        - {{ . }}
+        {{- end }}
         name: {{ .Release.Namespace }}
         policies:
         - allow_secrets
