@@ -28,15 +28,7 @@ spec:
           resources: {}
         - name: promote-changelog
           resources: {}
-        - image: gcr.io/jenkinsxio/helm-release:0.0.1
-          name: release-chart
-          resources: {}
-          script: |
-            #!/usr/bin/env sh
-            if [ -d "/workspace/source/charts/$REPO_NAME" ]; then source .jx/variables.sh
-            cd /workspace/source/charts/$REPO_NAME
-            make release; else echo no charts; fi
-        - name: promote-jx-promote
+        - name: release-chart
           resources: {}
   podTemplate: {}
   serviceAccountName: tekton-bot
