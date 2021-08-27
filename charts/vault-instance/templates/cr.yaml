@@ -138,7 +138,7 @@ spec:
     auth:
     - roles:
       - bound_service_account_names:
-        - default
+        - {{ default .Release.Namespace .Values.customAuthRole }}
         - vault-secrets-webhook
         - vault
         - kubernetes-external-secrets
@@ -148,7 +148,7 @@ spec:
         {{- range .Values.auth.namespaces }}
         - {{ . }}
         {{- end }}
-        name: default
+        name: {{ default .Release.Namespace .Values.customAuthRole }}
         policies:
         - allow_secrets
         - allow_pki
