@@ -28,3 +28,6 @@ auth:
 
 pvc:
   storageClassName:
+
+# example "default"
+customAuthRole: ""
