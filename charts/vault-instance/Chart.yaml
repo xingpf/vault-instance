@@ -1,10 +1,10 @@
 apiVersion: v1
 name: vault-instance
 description: a chart for creating a Vault instance via the vault operator
-version: 1.0.0
-appVersion: v1.0.0
+version: 1.0.26
+appVersion: 1.0.26
 keywords:
   - vault
 home: https://github.com/jenkins-x-charts/vault-instance
 sources:
-- https://github.com/jenkins-x-charts/vault-instance
+  - https://github.com/jenkins-x-charts/vault-instance
